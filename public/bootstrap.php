@@ -36,17 +36,12 @@ define('PROJECT_FOLDER', dirname(getcwd()) . '/');
 /**
  * @var The root vendor folder, containing all libraries, including Backend-Core.
  */
-define('VENDOR_FOLDER', PROJECT_FOLDER . 'library/');
+define('VENDOR_FOLDER', PROJECT_FOLDER . 'libraries/');
 
 /**
  * @var The root folder for Backend-Core source files
  */
 define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
-
-/**
- * @var The root folder for the Application source files
- */
-define('APP_FOLDER', BACKEND_FOLDER . 'Application/');
 
 /**
  * @var string The  publicly accessable part of the installation
