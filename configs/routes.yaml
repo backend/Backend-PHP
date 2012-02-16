@@ -1,0 +1,9 @@
+# Define all custom routes here
+routes:
+    home:
+        route: /
+        controller: \Backend\Base\Controllers\Example
+        action: home
+
+controllers:
+    something: \Backend\Base\Controllers\Example

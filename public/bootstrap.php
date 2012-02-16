@@ -39,6 +39,11 @@ define('PROJECT_FOLDER', dirname(getcwd()) . '/');
 define('VENDOR_FOLDER', PROJECT_FOLDER . 'libraries/');
 
 /**
+ * @var The root vendor folder, containing all libraries, including Backend-Core.
+ */
+define('SOURCE_FOLDER', PROJECT_FOLDER . 'app/');
+
+/**
  * @var The root folder for Backend-Core source files
  */
 define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
