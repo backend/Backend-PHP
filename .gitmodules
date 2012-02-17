@@ -1,0 +1,6 @@
+[submodule "libraries/Backend/Base"]
+	path = libraries/Backend/Base
+	url = git@github.com:backend/Backend-PHP-Base.git
+[submodule "libraries/Backend/Core"]
+	path = libraries/Backend/Core
+	url = git@github.com:backend/Backend-PHP-Core.git
