@@ -12,7 +12,7 @@
     <div class="container">
         {% if buffered is not empty %}
             <div class="notice">
-                {{ buffered }}
+                {{ buffered|raw }}
             </div>
         {% endif %}
     </div>
