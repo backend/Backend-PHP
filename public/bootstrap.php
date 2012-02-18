@@ -72,5 +72,5 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
     define('SITE_STATE', 'development');
 }
 
-require(BACKEND_FOLDER . 'Core/Autoloader.php');
-\Backend\Core\Autoloader::register();
+require(BACKEND_FOLDER . 'Core/Utilities/Autoloader.php');
+\Backend\Core\Utilities\Autoloader::register();
