@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ SITE_LINK }}css/blueprint/screen.css">
+        <link rel="stylesheet" type="text/css" media="print" href="{{ SITE_LINK }}css/blueprint/print.css">
+        <!--[if lt IE 8]><link rel="stylesheet"  type="text/css" media="screen, projection" href="{{ SITE_LINK }}css/blueprint/ie.css"><![endif]-->
+        {% endblock %}
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
+    <body>
+        <header id="header">
+            {% block header %}
+            {% endblock %}
+        </header><!-- end #header -->
+        <div id="body">
+            {% block body %}
+            {% endblock %}
+        </div><!-- end #body -->
+        <footer id="footer">
+            {% block footer %}
+            {% endblock %}
+        </footer><!-- end #footer -->
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
