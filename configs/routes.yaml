@@ -7,9 +7,11 @@ routes:
     test:
         route: /this/is/<id>/<another>
         callback: \Backend\Base\Controllers\Example::params
+        defaults:
+            another: 'string'
 
     verb:
-        _verb: post
+        verb: post
         route: /
         callback: \Backend\Base\Controllers\Example::post
 
