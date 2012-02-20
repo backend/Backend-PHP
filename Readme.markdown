@@ -1,7 +1,7 @@
-Backend-Core
+Backend-PHP
 ============
 
-Backend-Core is a basic code base that provides REST functionality using MVC architecture.
+Backend-PHP is a basic code base that provides REST functionality using MVC architecture.
 
 It also has the following advantages:
 
@@ -10,12 +10,15 @@ It also has the following advantages:
 * Can be called using the command line or a web client (like a browser)
 
 It serves as the ideal low level base for applications or frameworks that need to be
-RESTful and done using MVC.
+RESTful and done using MVC. The code base is divided in to Components, managed as git sub
+modules.
 
 Installation
 ----------
 
-    git clone git@github.com:jrgns/backend-core.git
+    git clone git@github.com:backend/Backend-PHP.git
+    git submodule init
+    git submodule update
 
 Usage
 ----
