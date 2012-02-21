@@ -27,5 +27,5 @@ database:
         # entititesFolder defaults to PROJECT_FOLDER . 'configs/entities'
         # entitiesFolder: 'configs/entities'
         connection:
-            driver: pdo_sqlite
+            driver: sqlite
             path: /tmp/backend-core.sqlite

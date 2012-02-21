@@ -1,0 +1,3 @@
+JadeIT\Contact\Models\Contact:
+    type: \Backend\Base\Bindings\PDOBinding
+    connection: default
