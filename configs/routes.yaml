@@ -2,18 +2,18 @@
 routes:
     home:
         route: /
-        callback: \Backend\Base\Controllers\Example::home
+        callback: \Backend\Base\Controllers\ExamplesController::home
 
     test:
         route: /this/is/<id>/<another>
-        callback: \Backend\Base\Controllers\Example::params
+        callback: \Backend\Base\Controllers\ExamplesController::params
         defaults:
             another: 'string'
 
     verb:
         verb: post
         route: /
-        callback: \Backend\Base\Controllers\Example::post
+        callback: \Backend\Base\Controllers\ExamplesController::post
 
 # Map the area part of the url to a controller
 controllers:
