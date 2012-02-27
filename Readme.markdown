@@ -2,12 +2,15 @@ Backend-PHP
 ============
 
 Backend-PHP is a basic code base that provides REST functionality using MVC architecture.
+It's ideal for developing API's that should provide information in multiple formats, or
+an API that also needs to act as a web site.
 
 It also has the following advantages:
 
 * Unit Testable and Tested using PHPUnit
-* ZEND Coding Standards compliant
+* PEAR Coding Standards compliant
 * Can be called using the command line or a web client (like a browser)
+* Results can be modified on a per format basis
 
 It serves as the ideal low level base for applications or frameworks that need to be
 RESTful and done using MVC. The code base is divided in to Components, managed as git sub
@@ -53,3 +56,8 @@ The MVC components are structured as follows:
 * All Output happens in the View
 
 The Application class holds everything together.
+
+The code is further separated by removing all data source related code from the Model. Models can be
+defined as BoundModel's that have a data binding. These data bindings provide the code and functionality
+to perform CRUD functionality on a data source. The data source can be a conventional database, an API or
+a file.
