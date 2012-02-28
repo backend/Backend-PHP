@@ -24,8 +24,14 @@ application:
 # Set DB Connections here
 database:
     default:
-        # entititesFolder defaults to PROJECT_FOLDER . 'configs/entities'
-        # entitiesFolder: 'configs/entities'
         connection:
             driver: sqlite
             path: /tmp/backend-core.sqlite
+
+    mysql:
+        connection:
+            driver: mysql
+            username: myusername
+            password: somepw
+            host: localhost
+            dbname: yourdatabase
