@@ -4,6 +4,17 @@
 
 {% block body %}
     <div class="container">
-        <pre>{{ exception }}</pre>
+            <table>
+                {{ exception.xdebug_message }}
+            </table>
+            <pre class="loud">{{ exception }}
+
+{% for line in exception.trace %}
+    {{ loop.length - loop.index0 }}. {% if line.file|length > 0 %}{{ line.file }} [ {{ line.line }} ] - {% endif %}{{ line.class }}{{ line.type }}{{ line.function }}
+{% endfor %}
+        </pre>
+        {% if exception.xdebug_message|length > 0 %}
+            Have xdebug
+        {% endif %}
     </div>
 {% endblock %}
