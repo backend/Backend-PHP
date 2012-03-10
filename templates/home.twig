@@ -1,4 +1,10 @@
-<h2>This is Home</h2>
+{% extends "base.twig" %}
 
-<p>The result was</p>
-<pre>{{ result }}</pre>
+{% block body %}
+    <div class="container">
+        <h1>This is Home</h1>
+
+        <p>The result was</p>
+        <pre>{{ result }}</pre>
+    </div>
+{% endblock %}

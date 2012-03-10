@@ -1,13 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends "base.twig" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ parent() }} - {{ title }}{% endblock %}
 
 {% block body %}
     <div class="container">
-            <table>
-                {{ exception.xdebug_message }}
-            </table>
-            <pre class="loud">{{ exception }}
+        <h1>{{ title }}</h1>
+        <table>
+            {{ exception.xdebug_message }}
+        </table>
+        <pre class="loud">{{ exception }}
 
 {% for line in exception.trace %}
     {{ loop.length - loop.index0 }}. {% if line.file|length > 0 %}{{ line.file }} [ {{ line.line }} ] - {% endif %}{{ line.class }}{{ line.type }}{{ line.function }}
