@@ -30,12 +30,6 @@
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     </head>
-    <!--
-    <style>
-        html { background: black url({{ SITE_PATH }}images/background.jpg) no-repeat fixed center; background-size: 90%; }
-        body { filter: alpha(0.87); opacity: 0.87; }
-    </style>
-    -->
     <body>
         {% block navbar %}
             <div class="navbar navbar-fixed-top">
@@ -62,7 +56,7 @@
             {% block header %}
             {% endblock %}
         </header><!-- end #header -->
-        <div id="body" style="opacity: 0.8; background-color: white;">
+        <div id="body">
             {% block body %}
             {% endblock %}
         </div><!-- end #body -->

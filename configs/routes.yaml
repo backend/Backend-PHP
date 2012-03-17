@@ -17,4 +17,4 @@ routes:
 
 # Map the area part of the url to a controller
 controllers:
-    something: \Backend\Base\Controllers\Example
+    something: \Backend\Base\Controllers\ExamplesController

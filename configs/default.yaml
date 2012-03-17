@@ -19,7 +19,7 @@ subjects:
 # Set application settings here
 application:
     values:
-        mainTitle: "Backend Core"
+        applicationName: "Backend PHP"
 
 # Set DB Connections here
 database:
@@ -28,10 +28,10 @@ database:
             driver: sqlite
             path: /tmp/backend-core.sqlite
 
-    mysql:
+    default_mysql:
         connection:
             driver: mysql
-            username: myusername
-            password: somepw
+            username: username
+            password: password
             host: localhost
-            dbname: yourdatabase
+            dbname: database
