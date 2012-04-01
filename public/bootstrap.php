@@ -27,6 +27,7 @@
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
     die("This file cannot be executed directly");
 }
+date_default_timezone_set('Africa/Johannesburg');
 
 /**
  * @var The project folder, containing the public folder, all libraries and configs.

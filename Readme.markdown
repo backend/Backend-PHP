@@ -23,6 +23,12 @@ Installation
     git submodule init
     git submodule update
 
+You'll also nead the Twig templating engine and Pear Logger (or equivalents).
+
+    pear config-set auto_discover 1
+    pear install pear.twig-project.org/Twig
+    pear install Log
+
 Usage
 ----
 
