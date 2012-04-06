@@ -11,7 +11,11 @@ tools:
 
 # Add observers to subject classes here. The observers should refer to the tool name
 subjects:
-    Backend\Core\Utilities\LogMessage:
+    Backend\Core\Application:
+        observers:
+            - Logger
+            - PearLogger
+    Backend\Core\Utilities\ApplicationEvent:
         observers:
             - Logger
             - PearLogger
