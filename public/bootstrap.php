@@ -55,24 +55,6 @@ define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
 define('WEB_FOLDER', PROJECT_FOLDER . 'public/');
 
 //define('SITE_FOLDER', APP_FOLDER . '/sites/liveserver.com');
-if (array_key_exists('HTTP_HOST', $_SERVER)) {
-    switch ($_SERVER['HTTP_HOST']) {
-    case 'www.liveserver.com':
-        if (!defined('SITE_STATE')) {
-            define('SITE_STATE', 'production');
-        }
-        break;
-    case 'localhost':
-    default:
-        if (!defined('SITE_STATE')) {
-            define('SITE_STATE', 'development');
-        }
-        break;
-    }
-} else {
-    define('SITE_STATE', 'development');
-}
-
 require(BACKEND_FOLDER . 'Core/Utilities/Autoloader.php');
 \Backend\Core\Utilities\Autoloader::register();
 //Trigger the loading of the ApplicationEvent class

@@ -24,10 +24,23 @@
  *
  * @package CoreFiles
  */
-require('bootstrap.php');
+require 'bootstrap.php';
+use Backend\Core\Application;
+
+if (array_key_exists('HTTP_HOST', $_SERVER)) {
+    switch ($_SERVER['HTTP_HOST']) {
+    case 'www.liveserver.com':
+        Application::setSiteState('production');
+        break;
+    case 'localhost':
+    default:
+        Application::setSiteState('development');
+        break;
+    }
+}
 
 //Setup a new Application
-$application = new Backend\Core\Application();
+$application = new Application();
 //The application generates a response
 $response = $application->main();
 //Which is then outputted to the Client
