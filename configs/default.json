@@ -1,0 +1,52 @@
+{
+    "tools": {
+        "Render": "Backend\\Base\\Utilities\\Render",
+        "Logger": "Backend\\Core\\Utilities\\Logger",
+        "PearLogger": [
+            "Backend\\Core\\Utilities\\PearLogger",
+            {
+                "filename": "/tmp/backend-pear.log"
+            }
+        ]
+    },
+
+    "subjects": {
+        "Backend\\Core\\Utilities\\ApplicationEvent": {
+            "observers": [
+                "Logger",
+                "PearLogger"
+            ]
+        },
+
+        "Backend\\Core\\Application": {
+            "observers": [
+                "Logger",
+                "PearLogger"
+            ]
+        }
+    },
+
+    "application": {
+        "values": {
+            "applicationName": "Backend PHP"
+        }
+    },
+
+    "database": {
+        "default": {
+            "connection": {
+                "driver": "sqlite",
+                "path": "/tmp/backend-core.sqlite"
+            }
+        },
+        "default_mysql": {
+            "connection": {
+                "driver": "mysql",
+                "username": "username",
+                "password": "password",
+                "host": "localhost",
+                "dbname": "database"
+            }
+        }
+    }
+}

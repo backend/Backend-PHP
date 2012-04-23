@@ -23,6 +23,11 @@ Installation
     git submodule init
     git submodule update
 
+Or, to add it to an existing project
+
+    git remote add backend git@github.com:backend/Backend-PHP.git
+    git merge remotes/backend/master
+
 You'll also nead the Twig templating engine and Pear Logger (or equivalents).
 
     pear config-set auto_discover 1
