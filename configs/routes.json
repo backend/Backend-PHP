@@ -1,0 +1,23 @@
+{
+    "routes":{
+        "home":{
+            "route":"/",
+                "callback":"\\Backend\\Base\\Controllers\\ExamplesController::home"
+        },
+            "test":{
+                "route":"/this/is/<id>/<another>",
+                "callback":"\\Backend\\Base\\Controllers\\ExamplesController::params",
+                "defaults":{
+                    "another":"string"
+                }
+            },
+            "verb":{
+                "verb":"post",
+                "route":"/",
+                "callback":"\\Backend\\Base\\Controllers\\ExamplesController::post"
+            }
+    },
+        "controllers":{
+            "something":"\\Backend\\Base\\Controllers\\ExamplesController"
+        }
+}
