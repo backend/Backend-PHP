@@ -50,9 +50,14 @@ define('SOURCE_FOLDER', PROJECT_FOLDER . 'app/');
 define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
 
 /**
- * @var string The  publicly accessable part of the installation
+ * @var string The publicly accessable part of the installation
  */
 define('WEB_FOLDER', PROJECT_FOLDER . 'public/');
+
+/**
+ * @var string The default extension for config files
+ */
+define('CONFIG_EXT', 'yaml');
 
 //define('SITE_FOLDER', APP_FOLDER . '/sites/liveserver.com');
 require(BACKEND_FOLDER . 'Core/Utilities/Autoloader.php');
