@@ -2,9 +2,9 @@
     backupGlobals               = "false"
     backupStaticAttributes      = "false"
     colors                      = "true"
-    convertErrorsToExceptions   = "true"
-    convertNoticesToExceptions  = "true"
-    convertWarningsToExceptions = "true"
+    convertErrorsToExceptions   = "false"
+    convertNoticesToExceptions  = "false"
+    convertWarningsToExceptions = "false"
     processIsolation            = "false"
     stopOnFailure               = "false"
     syntaxCheck                 = "false"
@@ -22,4 +22,9 @@
     <php>
         <const name="SITE_STATE" value="testing" />
     </php>
+    <filter>
+        <blacklist>
+             <directory suffix=".php">/usr/share/php</directory>
+        </blacklist>
+    </filter>
 </phpunit>
