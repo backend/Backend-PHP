@@ -1,0 +1,25 @@
+# Reference all tools likely to be used in the application here
+services:
+    backend.PearLogger:
+        - Backend\Core\Utilities\PearLogger
+        -
+            -
+                filename: '/tmp/test-backend.log'
+
+# Add observers to subject classes here. The observers should refer to the tool name
+subjects:
+    Backend\Core\Utilities\ApplicationEvent:
+        observers:
+            - backend.PearLogger
+
+# Set application settings here
+application:
+    values:
+        applicationName: "Backend PHP"
+
+# Set DB Connections here
+database:
+    default:
+        connection:
+            driver: sqlite
+            path: /tmp/backend-core.sqlite

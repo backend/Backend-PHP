@@ -1,27 +1,27 @@
 {
-    "tools": {
-        "Render": "Backend\\Base\\Utilities\\Render",
-        "Logger": "Backend\\Core\\Utilities\\Logger",
-        "PearLogger": [
+    "services": {
+        "backend.Render": "Backend\\Base\\Utilities\\Render",
+        "backend.Logger": "Backend\\Core\\Utilities\\Logger",
+        "backend.PearLogger": [
             "Backend\\Core\\Utilities\\PearLogger",
-            {
-                "filename": "/tmp/backend-pear.log"
-            }
+            [
+                { "filename": "/tmp/backend-pear.log" }
+            ]
         ]
     },
 
     "subjects": {
         "Backend\\Core\\Utilities\\ApplicationEvent": {
             "observers": [
-                "Logger",
-                "PearLogger"
+                "backend.Logger",
+                "backend.PearLogger"
             ]
         },
 
         "Backend\\Core\\Application": {
             "observers": [
-                "Logger",
-                "PearLogger"
+                "backend.Logger",
+                "backend.PearLogger"
             ]
         }
     },

@@ -1,15 +1,16 @@
 <?php
 return array (
-    'tools' =>
+    'services' =>
     array (
-      'Render' => 'Backend\\Base\\Utilities\\Render',
-      'Logger' => 'Backend\\Core\\Utilities\\Logger',
-      'PearLogger' =>
+      'backend.Render' => 'Backend\\Base\\Utilities\\Render',
+      'backend.Logger' => 'Backend\\Core\\Utilities\\Logger',
+      'backend.PearLogger' =>
       array (
-        0 => 'Backend\\Core\\Utilities\\PearLogger',
-        1 =>
+        'Backend\\Core\\Utilities\\PearLogger',
         array (
-          'filename' => '/tmp/backend-pear.log',
+          array (
+            'filename' => '/tmp/backend-pear.log',
+          ),
         ),
       ),
     ),
@@ -19,16 +20,16 @@ return array (
       array (
         'observers' =>
         array (
-          0 => 'Logger',
-          1 => 'PearLogger',
+          'backend.Logger',
+          'backend.PearLogger',
         ),
       ),
       'Backend\\Core\\Application' =>
       array (
         'observers' =>
         array (
-          0 => 'Logger',
-          1 => 'PearLogger',
+          'backend.Logger',
+          'backend.PearLogger',
         )
       ),
     ),

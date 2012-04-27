@@ -1,22 +1,23 @@
-# Reference all tools likely to be used in the application here
-tools:
-    Render: Backend\Base\Utilities\Render
-    Logger: Backend\Core\Utilities\Logger
-    PearLogger:
+# Reference all services likely to be used in the application here
+services:
+    backend.Render: Backend\Base\Utilities\Render
+    backend.Logger: Backend\Core\Utilities\Logger
+    backend.PearLogger:
         - Backend\Core\Utilities\PearLogger
         -
-            filename: '/tmp/backend-pear.log'
+            -
+                filename: '/tmp/backend-pear.log'
 
 # Add observers to subject classes here. The observers should refer to the tool name
 subjects:
     Backend\Core\Application:
         observers:
-            - Logger
-            - PearLogger
+            - backend.Logger
+            - backend.PearLogger
     Backend\Core\Utilities\ApplicationEvent:
         observers:
-            - Logger
-            - PearLogger
+            - backend.Logger
+            - backend.PearLogger
 
 # Set application settings here
 application:
