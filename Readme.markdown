@@ -34,6 +34,12 @@ You'll also nead the Twig templating engine and Pear Logger (or equivalents).
     pear install pear.twig-project.org/Twig
     pear install Log
 
+As well as the Symfony YAML parser (or equivalent).
+
+    sudo pear channel-discover pear.symfony-project.com
+    sudo pear install symfony/YAML
+
+
 Usage
 ----
 

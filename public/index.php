@@ -25,16 +25,17 @@
  * @package CoreFiles
  */
 require 'bootstrap.php';
-use Backend\Core\Application;
+use Backend\Base\Application;
+//use Backend\Core\Application;
 
 if (array_key_exists('HTTP_HOST', $_SERVER)) {
     switch ($_SERVER['HTTP_HOST']) {
     case 'www.liveserver.com':
-        Application::setSiteState('production');
+        define('BACKEND_SITE_STATE', 'production');
         break;
     case 'localhost':
     default:
-        Application::setSiteState('development');
+        define('BACKEND_SITE_STATE', 'development');
         break;
     }
 }
