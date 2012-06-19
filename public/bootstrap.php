@@ -60,7 +60,5 @@ define('WEB_FOLDER', PROJECT_FOLDER . 'public/');
 define('CONFIG_EXT', 'yaml');
 
 //define('SITE_FOLDER', APP_FOLDER . '/sites/liveserver.com');
-require(BACKEND_FOLDER . 'Core/Utilities/Autoloader.php');
-\Backend\Core\Utilities\Autoloader::register();
-//Trigger the loading of the ApplicationEvent class
-class_exists('\Backend\Core\Utilities\ApplicationEvent', true);
+require(BACKEND_FOLDER . 'Core/Autoloader.php');
+\Backend\Core\Autoloader::register();

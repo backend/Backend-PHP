@@ -24,9 +24,11 @@
  *
  * @package CoreFiles
  */
+//Setup the environment
+$router = null;
+$formatter = null;
+$config = null;
 require 'bootstrap.php';
-use Backend\Base\Application;
-//use Backend\Core\Application;
 
 if (array_key_exists('HTTP_HOST', $_SERVER)) {
     switch ($_SERVER['HTTP_HOST']) {
@@ -39,9 +41,13 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
         break;
     }
 }
-
-//Setup a new Application
-$application = new Application();
+//Get the application. This can be reduced to one line if you know what application
+//you want to use.
+if (class_exists('\Backend\Base\Application', true)) {
+    $application = new Backend\Base\Application($router, $formatter, $config);
+} else {
+    $application = new Backend\Core\Application($router, $formatter);
+}
 //The application generates a response
 $response = $application->main();
 //Which is then outputted to the Client
