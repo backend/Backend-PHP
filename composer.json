@@ -1,0 +1,9 @@
+{
+    "name": "backend/Backend-PHP",
+    "require": {
+        "php": ">=5.3.0",
+        "backend/Backend-PHP-Interfaces": "0.*",
+        "backend/Backend-PHP-Core": "0.*",
+        "backend/Backend-PHP-Base": "0.*"
+    }
+}
