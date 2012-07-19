@@ -25,11 +25,7 @@
  * @package CoreFiles
  */
 //Setup the environment
-$router = null;
-$formatter = null;
-$config = null;
 require 'bootstrap.php';
-
 if (array_key_exists('HTTP_HOST', $_SERVER)) {
     switch ($_SERVER['HTTP_HOST']) {
     case 'www.liveserver.com':
@@ -41,12 +37,15 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
         break;
     }
 }
+$config = Backend\Core\Utilities\Config::getNamed('application');
+$container = new Backend\Core\Utilities\DependencyInjectorContainer($config);
+
 //Get the application. This can be reduced to one line if you know what application
 //you want to use.
 if (class_exists('\Backend\Base\Application', true)) {
-    $application = new Backend\Base\Application($router, $formatter, $config);
+    $application = new Backend\Base\Application($config, $container);
 } else {
-    $application = new Backend\Core\Application($router, $formatter);
+    $application = new Backend\Core\Application($config, $container);
 }
 //The application generates a response
 $response = $application->main();
