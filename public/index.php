@@ -37,8 +37,9 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
         break;
     }
 }
-$config = Backend\Core\Utilities\Config::getNamed('application');
-$container = new Backend\Core\Utilities\DependencyInjectorContainer($config);
+$parser = new Symfony\Component\Yaml\Parser;
+$config = Backend\Core\Utilities\Config::getNamed($parser, 'application');
+$container = new Backend\Core\Utilities\DependencyInjectionContainer($config);
 
 //Get the application. This can be reduced to one line if you know what application
 //you want to use.

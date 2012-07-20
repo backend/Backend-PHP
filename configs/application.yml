@@ -1,20 +1,32 @@
 # Reference all services likely to be used in the application here
 parameters:
-    Router.ConfigFile: routes
+    backend.router.config_file: routes
 
 services:
-    RouterConfig:
+    backend.router.config:
         class: \Backend\Core\Utilities\Config
         factory_class: \Backend\Core\Utilities\Config
         factory_method: getNamed
-        arguments: [ %Router.ConfigFile% ]
-    Backend\Interfaces\CallbackFactoryInterface:
+        arguments:
+            - @backend.parser
+            - %backend.router.config_file%
+    backend.parser:
+        class: \Symfony\Component\Yaml\Parser
+    backend.callback_factory:
         class: \Backend\Core\Utilities\CallbackFactory
-    Backend\Interfaces\RouterInterface:
+    backend.router:
         class: \Backend\Core\Utilities\Router
         arguments:
-            - @RouterConfig
-            - @Backend\Interfaces\CallbackFactoryInterface
+            - @backend.router.config
+            - @backend.callback_factory
+    backend.renderer:
+        class: \Backend\Modules\TwigRender
+    backend.base.formats.html:
+        class: \Backend\Base\Formats\Html
+        arguments:
+            - @backend.request
+            - @backend.application.config
+            - @backend.renderer
 
 # Set application settings here
 application:
