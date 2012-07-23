@@ -1,6 +1,5 @@
-# Reference all services likely to be used in the application here
+# Reference all tools likely to be used in the application here
 parameters:
-    backend.router.config_file: routes
 
 services:
     backend.router.config:
@@ -36,6 +35,12 @@ services:
             - @backend.application.config
             - @backend.renderer
 
+# Add observers to subject classes here. The observers should refer to the tool name
+subjects:
+    Backend\Core\Utilities\ApplicationEvent:
+        observers:
+            - backend.PearLogger
+
 # Set application settings here
 application:
     values:
@@ -47,11 +52,3 @@ database:
         connection:
             driver: sqlite
             path: /tmp/backend-core.sqlite
-
-    default_mysql:
-        connection:
-            driver: mysql
-            username: username
-            password: password
-            host: localhost
-            dbname: database

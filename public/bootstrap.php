@@ -1,10 +1,16 @@
 <?php
 /**
- * bootstrapping script
+ * The bootstrapping script
  *
- * Copyright (c) 2011 JadeIT cc
- * @license http://www.opensource.org/licenses/mit-license.php
+ * PHP Version 5.3
  *
+ * @category  Backend
+ * @package   Public
+ * @author    J Jurgens du Toit <jrgns@backend-php.net>
+ * @copyright 2011 - 2012 Jade IT (cc)
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @link      http://backend-php.net
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in the
  * Software without restriction, including without limitation the rights to use, copy,
@@ -21,8 +27,6 @@
  * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * @package CoreFiles
  */
 if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
     die("This file cannot be executed directly");
@@ -30,35 +34,56 @@ if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
 date_default_timezone_set('Africa/Johannesburg');
 
 /**
- * @var The project folder, containing the public folder, all libraries and configs.
+ * The project folder, containing the public folder, all libraries and configs.
+ * 
+ * @var string
  */
-define('PROJECT_FOLDER', dirname(getcwd()) . '/');
+define('PROJECT_FOLDER', realpath(dirname(__FILE__) . '/../') . '/');
 
 /**
- * @var The root vendor folder, containing all libraries, including Backend-Core.
+ * The root vendor folder, containing all libraries, including Backend-Core.
+ * 
+ * @var string
  */
 define('VENDOR_FOLDER', PROJECT_FOLDER . 'libraries/');
 
 /**
- * @var The root application folder, containing all application space code.
+ * The root application folder, containing all application space code.
+ * 
+ * @var string
  */
 define('SOURCE_FOLDER', PROJECT_FOLDER . 'app/');
 
 /**
- * @var The root folder for Backend-Core source files
+ * The root folder for Backend-Core source files
+ * 
+ * @var string
  */
 define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
 
 /**
- * @var string The publicly accessable part of the installation
+ * The publicly accessable part of the installation
+ * 
+ * @var string
  */
 define('WEB_FOLDER', PROJECT_FOLDER . 'public/');
 
 /**
- * @var string The default extension for config files
+ * The default extension for config files
+ * 
+ * @var string
  */
 define('CONFIG_EXT', 'yaml');
 
-//define('SITE_FOLDER', APP_FOLDER . '/sites/liveserver.com');
-require(BACKEND_FOLDER . 'Core/Autoloader.php');
+if (!defined('BACKEND_SITE_STATE')) {
+    if (PHP_SAPI == 'cli') {
+        define('BACKEND_SITE_STATE', 'testing');
+    } else if (in_array($_SERVER['SERVER_ADDR'], array('::1', '127.0.0.1'))) {
+        define('BACKEND_SITE_STATE', 'development');
+    } else {
+        define('BACKEND_SITE_STATE', 'production');
+    }
+}
+
+require BACKEND_FOLDER . 'Core/Autoloader.php';
 \Backend\Core\Autoloader::register();

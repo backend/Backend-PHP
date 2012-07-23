@@ -2,8 +2,14 @@
 /**
  * Main URL end point
  *
- * Copyright (c) 2011 JadeIT cc
- * @license http://www.opensource.org/licenses/mit-license.php
+ * PHP Version 5.3
+ *
+ * @category  Backend
+ * @package   Core
+ * @author    J Jurgens du Toit <jrgns@backend-php.net>
+ * @copyright 2011 - 2012 Jade IT (cc)
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT License
+ * @link      http://backend-php.net
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in the
@@ -21,11 +27,8 @@
  * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * @package CoreFiles
  */
 //Setup the environment
-require 'bootstrap.php';
 if (array_key_exists('HTTP_HOST', $_SERVER)) {
     switch ($_SERVER['HTTP_HOST']) {
     case 'www.liveserver.com':
@@ -37,6 +40,7 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
         break;
     }
 }
+require 'bootstrap.php';
 $parser = new Symfony\Component\Yaml\Parser;
 $config = Backend\Core\Utilities\Config::getNamed($parser, 'application');
 $container = new Backend\Core\Utilities\DependencyInjectionContainer($config);
