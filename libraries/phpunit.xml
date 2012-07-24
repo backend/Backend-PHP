@@ -20,7 +20,7 @@
                     lowUpperBound="35" highLowerBound="70"/>
     </logging>
     <php>
-        <const name="SITE_STATE" value="testing" />
+        <const name="BACKEND_SITE_STATE" value="testing" />
     </php>
     <filter>
         <blacklist>
