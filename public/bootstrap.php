@@ -85,5 +85,10 @@ if (!defined('BACKEND_SITE_STATE')) {
     }
 }
 
-require BACKEND_FOLDER . 'Core/Autoloader.php';
+if (file_exists('../vendor/autoload.php')) {
+    include '../vendor/autoload.php';
+} else {
+    include BACKEND_FOLDER . 'Core/Autoloader.php';
+}
+// TODO Move this into the else clause when all the dependencies have been moved to composer
 \Backend\Core\Autoloader::register();

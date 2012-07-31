@@ -1,18 +1,9 @@
-[submodule "libraries/Backend/Interfaces"]
-	path = libraries/Backend/Interfaces
-	url = git@github.com:backend/Backend-PHP-Interfaces.git
-[submodule "libraries/Backend/Core"]
-	path = libraries/Backend/Core
-	url = git@github.com:backend/Backend-PHP-Core.git
 [submodule "libraries/Backend/Base"]
 	path = libraries/Backend/Base
 	url = git@github.com:backend/Backend-PHP-Base.git
 [submodule "libraries/Backend/Modules"]
 	path = libraries/Backend/Modules
 	url = git@github.com:backend/Backend-PHP-Modules.git
-[submodule "libraries/Symfony/Component/DependencyInjection"]
-	path = libraries/Symfony/Component/DependencyInjection
-	url = https://github.com/symfony/DependencyInjection.git
 [submodule "libraries/Symfony/Component/Yaml"]
 	path = libraries/Symfony/Component/Yaml
 	url = https://github.com/symfony/Yaml.git
