@@ -1,9 +1,0 @@
-[submodule "libraries/Backend/Base"]
-	path = libraries/Backend/Base
-	url = git@github.com:backend/Backend-PHP-Base.git
-[submodule "libraries/Backend/Modules"]
-	path = libraries/Backend/Modules
-	url = git@github.com:backend/Backend-PHP-Modules.git
-[submodule "libraries/Symfony/Component/Yaml"]
-	path = libraries/Symfony/Component/Yaml
-	url = https://github.com/symfony/Yaml.git

@@ -2,3 +2,4 @@ docs
 reports
 generate_docs.sh
 *.sublime*
+libraries/*

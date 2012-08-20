@@ -1,0 +1,10 @@
+default:
+    driver: sqlite
+    path: /tmp/backend-php.sqlite
+
+default_mysql:
+    driver: mysql
+    username: username
+    password: password
+    host: localhost
+    dbname: database
