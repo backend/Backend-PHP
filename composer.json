@@ -5,6 +5,8 @@
         "backend/interfaces": "dev-master",
         "backend/core": "dev-master",
         "backend/base": "dev-master",
-        "backend/modules": "dev-master"
+        "backend/modules": "dev-master",
+        "swiftmailer/swiftmailer": "4.2.1",
+        "monolog/monolog": ">=1.2"
     }
 }

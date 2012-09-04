@@ -31,6 +31,7 @@
 //Setup the environment
 if (array_key_exists('HTTP_HOST', $_SERVER)) {
     switch ($_SERVER['HTTP_HOST']) {
+    case 'liveserver.com':
     case 'www.liveserver.com':
         define('BACKEND_SITE_STATE', 'production');
         break;
@@ -40,18 +41,13 @@ if (array_key_exists('HTTP_HOST', $_SERVER)) {
         break;
     }
 }
-require 'bootstrap.php';
+require '../app/bootstrap.php';
 $parser = new Symfony\Component\Yaml\Parser;
 $config = Backend\Core\Utilities\Config::getNamed($parser, 'application');
 $container = new Backend\Core\Utilities\DependencyInjectionContainer($config);
+$container->set('application.config', $config);
+$application = $container->get('application');
 
-//Get the application. This can be reduced to one line if you know what application
-//you want to use.
-if (class_exists('\Backend\Base\Application', true)) {
-    $application = new Backend\Base\Application($config, $container);
-} else {
-    $application = new Backend\Core\Application($config, $container);
-}
 //The application generates a response
 $response = $application->main();
 //Which is then outputted to the Client

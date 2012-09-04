@@ -10,7 +10,7 @@
  * @copyright 2011 - 2012 Jade IT (cc)
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  * @link      http://backend-php.net
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in the
  * Software without restriction, including without limitation the rights to use, copy,
@@ -35,49 +35,59 @@ date_default_timezone_set('Africa/Johannesburg');
 
 /**
  * The project folder, containing the public folder, all libraries and configs.
- * 
+ *
  * @var string
  */
-define('PROJECT_FOLDER', realpath(dirname(__FILE__) . '/../') . '/');
-
+define('PROJECT_FOLDER', realpath(__DIR__ . '/../') . '/');
 /**
  * The root vendor folder, containing all libraries, including Backend-Core.
- * 
+ *
  * @var string
  */
-define('VENDOR_FOLDER', PROJECT_FOLDER . 'libraries/');
+define('VENDOR_FOLDER', PROJECT_FOLDER . 'vendor/');
 
 /**
  * The root application folder, containing all application space code.
- * 
+ *
  * @var string
  */
 define('SOURCE_FOLDER', PROJECT_FOLDER . 'app/');
 
 /**
  * The root folder for Backend-Core source files
- * 
+ *
  * @var string
  */
 define('BACKEND_FOLDER', VENDOR_FOLDER . 'Backend/');
 
 /**
  * The publicly accessable part of the installation
- * 
+ *
  * @var string
  */
 define('WEB_FOLDER', PROJECT_FOLDER . 'public/');
 
 /**
  * The default extension for config files
- * 
+ *
  * @var string
  */
 define('CONFIG_EXT', 'yaml');
 
+/**
+ * An application wide Salt. Change it to something random
+ *
+ * @var string
+ */
+define('APPLICATION_SALT', gethostname());
+
 if (!defined('BACKEND_SITE_STATE')) {
     if (PHP_SAPI == 'cli') {
-        define('BACKEND_SITE_STATE', 'testing');
+        if (gethostname() === 'localhost') {
+            define('BACKEND_SITE_STATE', 'production');
+        } else {
+            define('BACKEND_SITE_STATE', 'testing');
+        }
     } else if (in_array($_SERVER['SERVER_ADDR'], array('::1', '127.0.0.1'))) {
         define('BACKEND_SITE_STATE', 'development');
     } else {
@@ -85,10 +95,13 @@ if (!defined('BACKEND_SITE_STATE')) {
     }
 }
 
-if (file_exists('../vendor/autoload.php')) {
-    include '../vendor/autoload.php';
-} else {
+if (file_exists(VENDOR_FOLDER . 'autoload.php')) {
+    include VENDOR_FOLDER . 'autoload.php';
+} else if (file_exists(BACKEND_FOLDER . 'Core/Autoloader.php')) {
     include BACKEND_FOLDER . 'Core/Autoloader.php';
+}
+if (PHP_SAPI == 'cli') {
+    require_once(VENDOR_FOLDER . 'doctrine/common/lib/Doctrine/Common/ClassLoader.php');
 }
 // TODO Move this into the else clause when all the dependencies have been moved to composer
 \Backend\Core\Autoloader::register();

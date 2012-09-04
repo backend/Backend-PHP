@@ -1,11 +1,17 @@
 # Reference all services likely to be used in the application here
 parameters:
+    application.class: \Backend\Base\Application
     router.config_file: routes
     bindings.config_file: bindings
     connections.config_file: connections
     config.class: \Backend\Core\Utilities\Config
 
 services:
+    application:
+        class: %application.class%
+        arguments:
+            - @application.config
+            - @service_container
     router.config:
         class: \Backend\Core\Utilities\Config
         factory_class: \Backend\Core\Utilities\Config
@@ -59,6 +65,16 @@ services:
             - @renderer
     session:
         class: \Backend\Modules\Storage\NativeSession
+    logger_handler:
+        class: Monolog\Handler\StreamHandler
+        arguments:
+            - /tmp/concertd.log
+    logger:
+        class: Monolog\Logger
+        arguments:
+            - backend
+        calls:
+            pushHandler: [ @logger_handler ]
 
 # Set application settings here
 application:
