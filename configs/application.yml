@@ -65,6 +65,8 @@ services:
             - @renderer
     session:
         class: \Backend\Modules\Storage\NativeSession
+    flash:
+        class: \Backend\Modules\Storage\NativeFlash
     logger_handler:
         class: Monolog\Handler\StreamHandler
         arguments:
